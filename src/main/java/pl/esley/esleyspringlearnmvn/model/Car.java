@@ -20,5 +20,5 @@ public class Car {
     private String plate;
     private String brand;
     private double power;
-
+    private int playerId;
 }
