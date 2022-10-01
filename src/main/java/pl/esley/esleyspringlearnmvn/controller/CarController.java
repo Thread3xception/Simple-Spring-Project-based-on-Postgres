@@ -2,8 +2,8 @@ package pl.esley.esleyspringlearnmvn.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import pl.esley.esleyspringlearnmvn.exception.CarNotFoundException;
 import pl.esley.esleyspringlearnmvn.model.Car;
+import pl.esley.esleyspringlearnmvn.model.dto.CarResponse;
 import pl.esley.esleyspringlearnmvn.service.CarService;
 
 import java.util.List;
@@ -14,17 +14,28 @@ import java.util.List;
 public class CarController {
     private final CarService carService;
     @GetMapping
-    public List<Car> getAllCars() {
+    public List<CarResponse> getAllCars() {
         return carService.getListOfCars();
     }
 
-    @GetMapping("/{id}")
-    public Car getSingleCar(@PathVariable long id) throws CarNotFoundException {
-        return carService.getSingleCar(id);
+    @GetMapping("/id/{carId}")
+    public CarResponse getSingleCar(@PathVariable long carId) {
+        return carService.getSingleCar(carId);
     }
 
-    @PostMapping()
-    public void saveCar() {
+    @GetMapping("/brand/{brand}")
+    public List<CarResponse> getAllCarsByBrand(@PathVariable String brand) {
+        return carService.getAllCarsByBrand(brand);
+    }
 
+    @GetMapping("/player_info/{playerId}")
+    public List<CarResponse> getAllCarsByPlayerId(@PathVariable String playerId) {
+        return carService.getAllCarsByPlayerNickname(playerId);
+    }
+
+
+    @PostMapping
+    public void addCar(@RequestBody Car car) {
+        carService.addCar(car);
     }
 }

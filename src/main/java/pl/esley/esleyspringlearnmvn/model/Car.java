@@ -2,23 +2,31 @@ package pl.esley.esleyspringlearnmvn.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
+@ToString
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
+
+    @NotNull
     private String plate;
+
+    @NotNull
     private String brand;
+
+    @PositiveOrZero
+    @Column(nullable = false)
     private double power;
-    private int playerId;
+
+    private String playerNickname;
 }
