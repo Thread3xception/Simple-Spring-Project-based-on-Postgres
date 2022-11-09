@@ -1,0 +1,30 @@
+####### Podstawowe skróty ########
+ORM (Object Relational Mapping) - mapowanie z postaci zazwyczaj JSON-owe na obiekt bazodanowy, czyli object mapping (RELACYJNE BAZE DANYCH)
+JPA - schemat zarzadzania obiektami między bazą danych, mapowania obiektów (standard, zbior interfejsow, metody)
+Hibernate - Implementacja standardu JPA
+
+
+
+###### Klasy: #####
+Encja/obiekt:
+@Entity - encja bazodanowa to ona trafia do bazy danych i na podstawie jej pól robimy model bazodanowy
+@Table - tabelka, moge uzyc parametru (name = "xxx") wtedy dla encji zmienimy nazwe jej tabeli, tak to tabela będzie nazywać się tak samo jak klasa encji.
+
+###### Controller/API: ######
+@RestController - oznaczamy klase jako controller naszej aplikacji czyli zbior naszych endpointów
+@RequestMapping("/home") - adres naszego controllera, czyli jak w postmanie chces strzelac to localhost:8080/home
+
+
+###### Pola: #####
+@Id oraz @GeneratedValue - identyfikator naszej encji, przewaznie podajemy strategie (strategy = GenerationType.IDENTITY) aby wygenerować ID dla encji od 0 do XXX, jesli id to zmienna long
+@Transient - "zasłania" nasze pole aby nie powstało ono w bazie danych
+@Enumerated - adnotacja dla enumów  EnumType.String - zapisuje enuma jako stringa do bazy danych, EnumType.ordinal - zapisuje jako liczbe
+
+
+
+##### Inne: #####
+@EventListerner(ApplicationReadyEvent.class) - jesli oznacze jakąś metode tą adnotacją to odpali mi sie ona wraz z włączeniem apki
+
+
+##### Biblioteki #####
+Spring Web MVC - podstawa do tworzenia aplikacji webowych zawiera w sobie cora co jest wazne do funkcjonowania naszej apki korzystajacej ze springa
