@@ -50,7 +50,7 @@ public class PlayerApiService {
         return carRepository.getAllCarsByPlayerNickname(nickname);
     }
 
-    public PlayerResponse getSinglePlayerByIdWithCars(long id) {
+    public PlayerResponse getSinglePlayerByIdWithCars(Long id) {
         Player player = Optional.ofNullable(playerRepository.findSinglePlayerById(id)
                 .orElseThrow(() -> new EntityNotFoundException(Player.class, id)))
                 .get();

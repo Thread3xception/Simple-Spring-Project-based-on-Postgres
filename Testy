@@ -1,1 +1,17 @@
 ############################## INFORMACJE NA TEMAT TESTOWANIA ############################
+> Testy tworzy sie tylko po to, aby w przyszlosci zabezpieczyc kod w postaci dzialajacej - bardzo przydatne jest to w momencie gdy robimy np refaktor i chcemy sie upewnic
+czy sama funkcjonalnosc kodu zostala nienaruszona.
+
+> Mockito -  to biblioteka, która jest aktualnie niezbędnym narzędziem do tworzenia testów jednostkowych.
+Pozwala na pozbycie się niechcianej zależności, żeby łatwiej móc testować w izolacji.
+
+
+> Metoda Mockito.mock(Class<T> classToMock) zwraca tzw. mock klasy. Mock to stworzona w locie implementacja klasy,
+której m.in. możemy nadać zachowanie. Z punktu widzenia reszty kodu jest to po prostu zwykły obiekt i będzie traktowany jako "zwykła" klasa.
+Domyślnie mock nadpisuje wszystkie metody klasy i zawsze zwraca null.
+
+> Adnotacja @Mock vs mock(Klasa.class) -> dziala tak samo, tylko ze @Mock zrobimy na poczatku klasy testowej i wtedy ten mock zadziala nam we wszystkich testach
+W przypadku mock(Klasa.class) rowniez moge go stworzyc na poczatku klasy testowej, ale zazwyczaj korzysta sie z niego w samym tescie czyli w tescie robimy np. ApplicationController appController = mock(ApplicationController.class)
+
+
+Continue: https://youtu.be/J4Tad0UCPFc

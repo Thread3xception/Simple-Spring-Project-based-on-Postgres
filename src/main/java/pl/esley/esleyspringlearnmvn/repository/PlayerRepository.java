@@ -16,5 +16,5 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
     List<Player> findAllPlayers(Pageable page);
 
     @Query("SELECT p FROM Player p WHERE p.id = ?1")
-    Optional<Player> findSinglePlayerById(long id);
+    Optional<Player> findSinglePlayerById(Long id);
 }

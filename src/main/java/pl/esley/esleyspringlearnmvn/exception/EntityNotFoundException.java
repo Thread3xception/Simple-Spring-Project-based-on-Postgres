@@ -3,10 +3,10 @@ package pl.esley.esleyspringlearnmvn.exception;
 public class EntityNotFoundException extends RuntimeException {
 
     private Class type;
-    private long id;
+    private Long id;
     private String brand;
 
-    public EntityNotFoundException(Class type, long id) {
+    public EntityNotFoundException(Class type, Long id) {
         super("Nie znaleziono obiektu " + type.getSimpleName() + " o id: " + id);
     }
 
