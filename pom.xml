@@ -13,9 +13,14 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>EsleySpringLearnMvn</name>
     <description>EsleySpringLearnMvn</description>
+
     <properties>
         <java.version>17</java.version>
+        <spring.boot.maven.plugin.version>2.6.7</spring.boot.maven.plugin.version>
+        <spock.version>2.1-groovy-3.0</spock.version>
+        <groovy.version>3.0.13</groovy.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -55,9 +60,21 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-test-junit5</artifactId>
+            <version>${groovy.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.spockframework</groupId>
             <artifactId>spock-core</artifactId>
-            <version>2.1-M1-groovy-3.0</version>
+            <version>${spock.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-spring</artifactId>
+            <version>${spock.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -67,6 +84,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.maven.plugin.version}</version>
                 <configuration>
                     <excludes>
                         <exclude>

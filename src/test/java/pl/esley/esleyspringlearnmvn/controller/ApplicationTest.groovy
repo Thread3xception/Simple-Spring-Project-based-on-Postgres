@@ -1,8 +1,8 @@
-package pl.esley.esleyspringlearnmvn
+package pl.esley.esleyspringlearnmvn.controller
 
 import spock.lang.Specification
 
-class EsleySpringLearnMvnApplicationTest extends Specification {
+class ApplicationTest extends Specification {
 
     def "should add 2"() {
         given:

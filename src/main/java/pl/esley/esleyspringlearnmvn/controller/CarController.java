@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pl.esley.esleyspringlearnmvn.model.Car;
 import pl.esley.esleyspringlearnmvn.model.dto.CarResponse;
-import pl.esley.esleyspringlearnmvn.service.CarService;
+import pl.esley.esleyspringlearnmvn.service.CarApiService;
 
 import java.util.List;
 
@@ -12,30 +12,29 @@ import java.util.List;
 @RequestMapping("/car")
 @RequiredArgsConstructor
 public class CarController {
-    private final CarService carService;
+    private final CarApiService carApiService;
     @GetMapping
     public List<CarResponse> getAllCars() {
-        return carService.getListOfCars();
+        return carApiService.getListOfCars();
     }
 
     @GetMapping("/id/{carId}")
     public CarResponse getSingleCar(@PathVariable long carId) {
-        return carService.getSingleCar(carId);
+        return carApiService.getSingleCar(carId);
     }
 
     @GetMapping("/brand/{brand}")
     public List<CarResponse> getAllCarsByBrand(@PathVariable String brand) {
-        return carService.getAllCarsByBrand(brand);
+        return carApiService.getAllCarsByBrand(brand);
     }
 
     @GetMapping("/player_info/{playerId}")
     public List<CarResponse> getAllCarsByPlayerId(@PathVariable String playerId) {
-        return carService.getAllCarsByPlayerNickname(playerId);
+        return carApiService.getAllCarsByPlayerNickname(playerId);
     }
-
 
     @PostMapping
     public void addCar(@RequestBody Car car) {
-        carService.addCar(car);
+        carApiService.addCar(car);
     }
 }

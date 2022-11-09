@@ -1,0 +1,39 @@
+Jak działają adnotacje w Springu?
+W najprostszym rozumieniu adnotacje to wskazówki dla Springa w jaki sposób ma traktować poszczególne metody, klasy, pola i
+dzięki temu jest w stanie samodzielnie tworzyć beany (czyli obiekty, którymi zarządza — więcej o beanach poczytasz w naszej lekcji),
+wstrzykiwać je (czyli to, co robi @Autowired), weryfikować zabezpieczenia (@Secured, @PreAuthorize, @PostAuthorize).
+
+BEANY BYKOWSKI WIDEO: https://youtu.be/5Z4cgJAzoTI?list=PLUtcRmGoaP26a1UA3KA0VJ37C8SJOWny_
+
+Adnotacje które dodajemy przed klasę nazywamy w Springu stereotypami i są one swego rodzaju “flagą”, która mówi Springowi,
+że obiekt danej kasy ma być zarządzany przez niego jako bean, a poszczególne typy sterepotypów mogę mieć też specjalne znaczenie dla Springa.
+
+Wyrózniamy cztery podstawowe stereotypy:
+@Component,
+@Service,
+@Repository,
+@Controller
+
+Jaka jest różnica pomiędzy @Component, @Service, @Repository, @Controller?
+
+@Component  jest podstawowym stereotypem dla każdego z komponentów, którymi ma zarządzać Spring. Adnotacja ta jest równoważna z <bean>.
+Każdy inny stereotyp dziedziczy własnie po @Component.
+
+Oznacza to, że @Service, @Repository, @Controller to tak naprawdę adnotacja @Component z dodatkowymi informacjami. I tak:
+
+@Service — wskazuje serwis w warstwie logiki biznesowej
+@Repository — wskazuje DAO w warstwie przechowywania danych
+@Controller — wskazuje kontroler w warstwie prezentacji
+
+Dodatkowo, @Repository ze Spring-data  tworzy dynamicznie klasę (bo ta adnotacja jest nad interfejsem), która obsługuje bazę danych wykonując zapytania,
+które generuje na podstawie nazw metod tego interfejsu. Powoduje też, że wyjątki związane z bazą danych są zamieniane na Springowe DataAccessExceptions.
+
+Jaka jest różnica pomiędzy @Autowired, @Inject, @Resouces?
+Wszystkie te adnotacje służą do wstrzykiwania obiektów. Pierwszą różnicą między nimi jest ich pochodzenie:
+
+@Resource – zdefiniowany w javax.annotation, który jest pakietem Javy
+@Inject – zdefiniowany w  javax.inject package, który jest pakietem Java
+@Autowired – zdefiniowany w pakiecie org.springframework.bean.factory, który jest częścią Spring framework.
+Spring wprowadził obsługę adnotacje @Resouce i @Inject by umożliwić pracę z aplikacjami Java EE.
+
+@Autowired i @Inject działają  dokładnie tak samo.

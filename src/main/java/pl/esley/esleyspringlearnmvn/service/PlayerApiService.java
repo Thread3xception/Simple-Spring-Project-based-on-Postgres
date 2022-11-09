@@ -13,11 +13,12 @@ import pl.esley.esleyspringlearnmvn.repository.PlayerRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class PlayerService {
+public class PlayerApiService {
 
     private static final int Page_SIZE = 10;
     private final PlayerRepository playerRepository;
@@ -50,9 +51,13 @@ public class PlayerService {
     }
 
     public PlayerResponse getSinglePlayerByIdWithCars(long id) {
-        return playerRepository.findById(id)
-                .map(PlayerResponse::from)
-                .orElseThrow(() -> new EntityNotFoundException(Player.class, id));
+        Player player = Optional.ofNullable(playerRepository.findSinglePlayerById(id)
+                .orElseThrow(() -> new EntityNotFoundException(Player.class, id)))
+                .get();
+
+        player.setCars(extractCars(player.getNickname()));
+
+        return Optional.of(player).map(PlayerResponse::from).get();
     }
 
     public PlayerResponse addPlayer(Player player) {

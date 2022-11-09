@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class CarService {
+public class CarApiService {
 
     private final CarRepository carRepository;
 

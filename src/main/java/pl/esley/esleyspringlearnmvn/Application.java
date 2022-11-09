@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @OpenAPIDefinition(info = @Info(title = "Project API", version = "1.0", description = "Learning Project"))
-public class EsleySpringLearnMvnApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(EsleySpringLearnMvnApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }
