@@ -1,7 +1,7 @@
 INSERT INTO car(id, plate, brand, power, player_nickname) values (DEFAULT,'W1 ESLEY','Lambo',640, null);
 INSERT INTO car(id, plate, brand, power, player_nickname) values (2,'X1 ESLEY','Mercedes', 381, null);
 INSERT INTO car(id, plate, brand, power, player_nickname) values (3,'S2 YBKI','Seat', 200, null);
-INSERT INTO car(id, plate, brand, power, player_nickname) values (4,'W9 DIESEL','BMW', 550, null);
+INSERT INTO car(id, plate, brand, power, player_nickname) values (4,'W5 zzzz','BMW', 550, null);
 
 
 
